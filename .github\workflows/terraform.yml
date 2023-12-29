@@ -22,7 +22,7 @@ env:
   AWS_REGION: ap-south-1
   EKS_CLUSTER: gitops-eks
 
-  jobs:
+jobs:
     terraform:
       name: "Apply Terraform code changes"
       runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ env:
           uses: hashicorp/setup-terraform@v2
           #with:
           #terraform_version: "1.6.3"
-        - name: Init and validate Terraform configuration
+        - name: Init Terraform configuration
           id: init
           run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
         
